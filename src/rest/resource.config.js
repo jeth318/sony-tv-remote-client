@@ -1,6 +1,6 @@
 const axios = require('axios');
-const IRCC_url = 'http://192.168.1.66/sony/ircc';
-const systemInfoUrl = 'http://192.168.1.66/sony/system';
+const IRCC_url = 'https://192.168.1.66/sony/ircc';
+const systemInfoUrl = 'https://192.168.1.66/sony/system';
 const IRCC_headers = {
     'POST': '/sony/ircc HTTP/1.1',
     'Accept': '*/*',
