@@ -1,12 +1,10 @@
 const axios = require('axios');
-const dotenv = require('dotenv');
-dotenv.config();
 
-const SERVER_HOST = process.env.VUE_APP_SERVER_HOST;
-console.log('SERVER_HOST:', SERVER_HOST);
+const SONY_SERVER_IP = 'http://192.168.1.66'
+console.log('SERVER_HOST:', SONY_SERVER_IP);
 
-const IRCC_url = `${SERVER_HOST}/sony/ircc`;
-const systemInfoUrl = `${SERVER_HOST}/sony/system`;
+const IRCC_url = `${SONY_SERVER_IP}/sony/ircc`;
+const systemInfoUrl = `${SONY_SERVER_IP}/sony/system`;
 const IRCC_headers = {
     'POST': '/sony/ircc HTTP/1.1',
     'Accept': '*/*',
