@@ -18,9 +18,7 @@ export default {
     },
     methods: {
         dispatchRequest() {
-            console.log(this.irccKey);
-            console.log(IRCC[this.irccKey]);
-            sendIRCCCommand(IRCC[this.irccKey]);
+           sendIRCCCommand(IRCC[this.irccKey]);
         }
     }
 };

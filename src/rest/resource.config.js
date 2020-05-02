@@ -1,7 +1,6 @@
 const axios = require('axios');
 
 const SONY_SERVER_IP = 'http://192.168.1.66'
-console.log('SERVER_HOST:', SONY_SERVER_IP);
 
 const IRCC_url = `${SONY_SERVER_IP}/sony/ircc`;
 const systemInfoUrl = `${SONY_SERVER_IP}/sony/system`;
@@ -38,8 +37,8 @@ const sendIRCCCommand = async command => {
     try {
         return await axios(config);
     } catch (error) {
-        console.error('Oops, there was an error:', error.response);
-        return 'error!';
+        console.error('Oops, there was an error:', error);
+        return { success: false, errorEnum: 'NETWORK_ERROR' }
     }
 }
 
@@ -61,6 +60,7 @@ const isTurnedOn = async () => {
 
     } catch (error) {
         console.error('Oops, cannot fetch system information:', error);
+        return { success: false, errorEnum: 'NETWORK_ERROR' }
     }
 }
 

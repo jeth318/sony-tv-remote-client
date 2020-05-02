@@ -9,7 +9,7 @@ const getPublicPath = () => {
         if (isLocalDev()) {
             return path.resolve(__dirname, 'dist');
         }
-        return 'sony-tv-remote';
+        return '/sony-tv-remote';
     }
     return '/';
 }
