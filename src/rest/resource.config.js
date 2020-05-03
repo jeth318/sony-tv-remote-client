@@ -1,9 +1,11 @@
 const axios = require('axios');
 
-const SONY_SERVER_IP = 'http://192.168.1.66'
+const getSonyTvIp = () => {
+    return localStorage.getItem('sony-tv-ip' || '192.168.2.66') ;
+}
 
-const IRCC_url = `${SONY_SERVER_IP}/sony/ircc`;
-const systemInfoUrl = `${SONY_SERVER_IP}/sony/system`;
+const getIRCCUrl = () => `http://${getSonyTvIp()}/sony/ircc`;
+const getSystemInfoUrl = () => `http://${getSonyTvIp()}/sony/system`;
 const IRCC_headers = {
     'POST': '/sony/ircc HTTP/1.1',
     'Accept': '*/*',
@@ -29,7 +31,7 @@ const generateXMLString = irccCode => {
 const sendIRCCCommand = async command => {
     const data = generateXMLString(command);
     const config = {
-        url: IRCC_url,
+        url: getIRCCUrl(),
         method: 'POST',
         data,
         headers: { ...IRCC_headers },
@@ -44,7 +46,7 @@ const sendIRCCCommand = async command => {
 
 const isTurnedOn = async () => {
     const config = {
-        url: systemInfoUrl,
+        url: getSystemInfoUrl(),
         method: 'POST',
         data: JSON.stringify({
             "method": "getPowerStatus",
@@ -64,7 +66,17 @@ const isTurnedOn = async () => {
     }
 }
 
+const pingTv = async () => {
+    try {
+         const response = await isTurnedOn();
+         return response.errorEnum ? false : true;
+    } catch (error) {
+        return false;
+    }
+ }
+
 module.exports = {
     sendIRCCCommand,
-    isTurnedOn
+    isTurnedOn,
+    pingTv
 }

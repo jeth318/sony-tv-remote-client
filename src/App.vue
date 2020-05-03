@@ -2,6 +2,11 @@
   <v-app>
     <v-container fluid>
       <modal :active="showModal" :close="closeModal" :heading="modalHeading" :body="modalBody"></modal>
+             <v-row class="section-row">
+        <div class="section">
+          <settings-panel></settings-panel>
+        </div>
+      </v-row>
       <v-row class="section-row">
         <div class="section">
           <div style="display: flex; justify-content: center">
@@ -43,10 +48,19 @@ import PowerGroup from "./components/power/power-group.vue";
 import VolumeGroup from "./components/volume/volume-group.vue";
 import Modal from "./components/modal/modal.vue";
 import { isTurnedOn } from './rest/resource.config';
+import SettingsPanel from './components/settings-panel/settings-panel.vue';
 
 export default {
   name: "App",
-  components: { ActionGroup, ActionMenu, ArrowGroup, Modal, PowerGroup, VolumeGroup },
+  components: {
+    ActionGroup,
+    ActionMenu,
+    ArrowGroup,
+    Modal,
+    PowerGroup,
+    SettingsPanel,
+    VolumeGroup
+    },
   data: () => ({
     isTurnedOn: false, 
     showModal: false,
