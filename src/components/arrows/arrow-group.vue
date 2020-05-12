@@ -1,22 +1,22 @@
 <template>
-<div class="arrow-group col">
-    <v-row class="arrow-up-wrapper">
-        <remote-button icon="arrow-up" color="blue" irccKey="Up"></remote-button>
-    </v-row>
-    <v-row class="arrow-side-wrapper">
-        <remote-button icon="arrow-left" color="blue" irccKey="Left"></remote-button>
-        <remote-button icon="arrow-right" color="blue" irccKey="Right"></remote-button>
-    </v-row>
-      <v-row class="arrow-down-wrapper">
-        <remote-button icon="arrow-down" color="blue" irccKey="Down"></remote-button>
-    </v-row>
-</div>
+    <div class="arrow-group col">
+        <v-row class="arrow-up-wrapper">
+            <remote-button icon="arrow-up" color="blue" ircc-key="Up" />
+        </v-row>
+        <v-row class="arrow-side-wrapper">
+            <remote-button icon="arrow-left" color="blue" ircc-key="Left" />
+            <remote-button icon="arrow-right" color="blue" ircc-key="Right" />
+        </v-row>
+        <v-row class="arrow-down-wrapper">
+            <remote-button icon="arrow-down" color="blue" ircc-key="Down" />
+        </v-row>
+    </div>
 </template>
 
 <script>
-import RemoteButton from '../remote-button.vue';
+import RemoteButton from '../remote-button.vue'
 export default {
-    components: { RemoteButton }
+    components: { RemoteButton },
 }
 </script>
 
@@ -43,6 +43,4 @@ export default {
 .arrow-side-wrapper > button:last-child {
     margin-left: 30px;
 }
-
-
 </style>

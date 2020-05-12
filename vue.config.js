@@ -1,19 +1,19 @@
 // vue.config.js
-const path = require('path');
+const path = require('path')
 console.log(process.env.NODE_ENV)
-const isLocalDev = () => process.env.VUE_APP_LOCALDEV;
-const isProductionBuild = () => process.env.NODE_ENV === 'production';
+const isLocalDev = () => process.env.VUE_APP_LOCALDEV
+const isProductionBuild = () => process.env.NODE_ENV === 'production'
 
 const getPublicPath = () => {
     if (isProductionBuild()) {
         if (isLocalDev()) {
-            return path.resolve(__dirname, 'dist');
+            return path.resolve(__dirname, 'dist')
         }
-        return '/sony-tv-remote';
+        return '/sony-tv-remote'
     }
-    return '/';
+    return '/'
 }
 
 module.exports = {
-    publicPath: getPublicPath()
-  }
+    publicPath: getPublicPath(),
+}
