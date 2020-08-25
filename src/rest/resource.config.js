@@ -1,10 +1,10 @@
 const axios = require('axios')
-
+localStorage.setItem('sony-tv-ip', '192.168.1.66')
 const getSonyTvIp = () => {
-    return localStorage.getItem('sony-tv-ip' || '192.168.2.66')
+    return localStorage.getItem('sony-tv-ip')
 }
 
-const getIRCCUrl = () => `http://${getSonyTvIp()}/sony/ircc`
+const getIRCCUrl = () => `http://${getSonyTvIp()}/sony/IRCC`
 const getSystemInfoUrl = () => `http://${getSonyTvIp()}/sony/system`
 const IRCC_headers = {
     POST: '/sony/ircc HTTP/1.1',
@@ -14,7 +14,7 @@ const IRCC_headers = {
     'X-Auth-PSK': 1234,
 }
 
-const generateXMLString = (irccCode) => {
+const generateXMLString = irccCode => {
     return `
         <s:Envelope 
             xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"
@@ -28,7 +28,7 @@ const generateXMLString = (irccCode) => {
   `
 }
 
-const sendIRCCCommand = async (command) => {
+const sendIRCCCommand = async command => {
     const data = generateXMLString(command)
     const config = {
         url: getIRCCUrl(),

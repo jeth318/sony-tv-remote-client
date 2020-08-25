@@ -15,7 +15,7 @@
                     <v-text-field
                         v-model="ipAddress"
                         clearable
-                        placeholder="192.168.1.23"
+                        :placeholder="placeholder"
                         label="Sony TV IP-address"
                     />
                 </div>
@@ -60,6 +60,11 @@ export default {
         async ping() {
             const response = await pingTv()
             this.validConnection = response
+        },
+    },
+    computed: {
+        placeholder() {
+            return localStorage.getItem('sony-yv-ip') || '192.168.X.X'
         },
     },
 }
