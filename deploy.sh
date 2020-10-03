@@ -11,7 +11,6 @@ git pull origin master
 echo "Pulled successfully from master"
 
 echo "Installing dependencies..."
-rm -rf node_modules
 npm install
 echo "Dependencies were installed"
 
