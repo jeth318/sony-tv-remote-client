@@ -52,7 +52,7 @@ import ArrowGroup from './components/arrows/arrow-group.vue'
 import PowerGroup from './components/power/power-group.vue'
 import VolumeGroup from './components/volume/volume-group.vue'
 import Modal from './components/modal/modal.vue'
-import { isTurnedOn } from './rest/resource.config'
+import { isTurnedOn } from './rest/resource'
 import SettingsPanel from './components/settings-panel/settings-panel.vue'
 
 export default {
@@ -80,8 +80,7 @@ export default {
                 'Kontrollera att du är ansluten till samma WiFi som din Sony-TV.'
             this.showModal = true
         } else {
-            console.log('Response', response)
-            this.isTurnedOn = response
+            this.isTurnedOn = response.data.active;
         }
     },
     methods: {

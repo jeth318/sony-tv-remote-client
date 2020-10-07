@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { pingTv } from '../../rest/resource.config'
+import { pingTv } from '../../rest/resource'
 export default {
     props: {
         icon: { type: String, default: '' },

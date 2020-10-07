@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { sendIRCCCommand } from '../rest/resource.config'
+import { sendIRCCCommand } from '../rest/resource'
 import IRCC from '../utils/ircc-codes'
 export default {
     props: {
