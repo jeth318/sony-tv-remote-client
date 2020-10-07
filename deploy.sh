@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd /home/pi/Apps/sony-tv-remote
+cd /home/pi/Apps/client/sony-tv-remote
 echo "Stashing lock files"
 git stash
 
