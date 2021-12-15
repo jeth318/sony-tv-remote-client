@@ -14,9 +14,7 @@
 
                 <v-card-actions>
                     <v-spacer />
-                    <v-btn color="primary" text @click="close">
-                        Stäng
-                    </v-btn>
+                    <v-btn color="primary" text @click="close"> Stäng </v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -31,7 +29,7 @@ export default {
         heading: { type: String, default: 'Heading' },
         body: { type: String, default: 'Body' },
     },
-    data: function() {
+    data: function () {
         return {
             dialog: this.active,
         }
