@@ -10,8 +10,8 @@ echo "Pulling from Master"
 git pull origin master
 echo "Pulled successfully from master"
 
-echo "Installing dependencies..."
-npm install
+echo "Installing dependencies using npm continous integration..."
+npm ci
 echo "Dependencies were installed"
 
 echo "Rebuilding application"
