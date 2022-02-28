@@ -8,9 +8,7 @@
                 <v-btn class="mt-6" text color="red" @click="sheet = !sheet">
                     Stäng
                 </v-btn>
-                <div class="py-3">
-                    Ange IP-addressen för din Sony TV
-                </div>
+                <div class="py-3">Ange IP-addressen för din Sony TV</div>
                 <div class="input-wrapper">
                     <v-text-field
                         v-model="ipAddress"
@@ -19,9 +17,7 @@
                         label="Sony TV IP-address"
                     />
                 </div>
-                <v-btn @click="ping">
-                    Testa anslutning
-                </v-btn>
+                <v-btn @click="ping"> Testa anslutning </v-btn>
                 <v-icon
                     x-large
                     class="ping-status"

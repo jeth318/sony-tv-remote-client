@@ -14,7 +14,7 @@
             </v-row>
             <v-row class="section-row">
                 <div class="section">
-                    <div style="display: flex; justify-content: center;">
+                    <div style="display: flex; justify-content: center">
                         <div v-if="isTurnedOn" class="power-status on" />
                         <div v-else class="power-status off" />
                     </div>
@@ -51,7 +51,7 @@ import ActionMenu from './components/actions/action-menu.vue'
 import ArrowGroup from './components/arrows/arrow-group.vue'
 import PowerGroup from './components/power/power-group.vue'
 import VolumeGroup from './components/volume/volume-group.vue'
-import Modal from './components/modal/modal.vue'
+import Modal from './components/info-modal/info-modal.vue'
 import { isTurnedOn } from './rest/resource'
 import SettingsPanel from './components/settings-panel/settings-panel.vue'
 
@@ -80,7 +80,7 @@ export default {
                 'Kontrollera att du är ansluten till samma WiFi som din Sony-TV.'
             this.showModal = true
         } else {
-            this.isTurnedOn = response.data.active;
+            this.isTurnedOn = response.data.active
         }
     },
     methods: {
