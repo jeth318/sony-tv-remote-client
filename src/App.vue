@@ -9,16 +9,10 @@
             />
             <v-row class="section-row">
                 <div class="section">
-                    <settings-panel />
-                </div>
-            </v-row>
-            <v-row class="section-row">
-                <div class="section">
-                    <div style="display: flex; justify-content: center">
-                        <div v-if="isTurnedOn" class="power-status on" />
-                        <div v-else class="power-status off" />
-                    </div>
-                    <power-group />
+                    <power-led />
+                    <power-group
+                        :on-power-button-pressed="onPowerButtonPressed"
+                    />
                 </div>
             </v-row>
             <v-row class="section-row">
@@ -53,7 +47,7 @@ import PowerGroup from './components/power/power-group.vue'
 import VolumeGroup from './components/volume/volume-group.vue'
 import Modal from './components/info-modal/info-modal.vue'
 import { isTurnedOn } from './rest/resource'
-import SettingsPanel from './components/settings-panel/settings-panel.vue'
+import PowerLed from './components/power-led/power-led.vue'
 
 export default {
     name: 'App',
@@ -63,11 +57,11 @@ export default {
         ArrowGroup,
         Modal,
         PowerGroup,
-        SettingsPanel,
         VolumeGroup,
+        PowerLed,
     },
     data: () => ({
-        isTurnedOn: false,
+        internalIsTurnedOn: false,
         showModal: false,
         modalHeading: '',
         modalBody: '',
@@ -80,7 +74,8 @@ export default {
                 'Kontrollera att du är ansluten till samma WiFi som din Sony-TV.'
             this.showModal = true
         } else {
-            this.isTurnedOn = response.data.active
+            console.log(response.data)
+            this.internalIsTurnedOn = response.data.active
         }
     },
     methods: {
@@ -88,6 +83,10 @@ export default {
             this.showModal = false
             this.modalHeading = ''
             this.modalBody = ''
+        },
+        async onPowerButtonPressed() {
+            const a = await isTurnedOn()
+            this.internalIsTurnedOn = a.response.data.active
         },
     },
 }
@@ -103,19 +102,5 @@ export default {
 .row {
     margin-left: 0;
     margin-right: 0;
-}
-
-.power-status {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
-
-.on {
-    background-color: green;
-}
-
-.off {
-    background-color: darkred;
 }
 </style>
