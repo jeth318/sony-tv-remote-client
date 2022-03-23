@@ -5,17 +5,15 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint"
+        "lint": "vue-cli-service lint",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@mdi/font": "6.5.95",
         "axios": "0.24.0",
         "core-js": "3.19.1",
         "dotenv": "10.0.0",
-<<<<<<< Updated upstream
         "husky": "^7.0.4",
-=======
->>>>>>> Stashed changes
         "roboto-fontface": "0.10.0",
         "vue": "2.6.14",
         "vuetify": "2.6.0"
@@ -26,11 +24,7 @@
         "@vue/cli-service": "4.5.15",
         "@vue/eslint-config-prettier": "6.0.0",
         "babel-eslint": "10.1.0",
-<<<<<<< Updated upstream
         "eslint": "7.32.0",
-=======
-        "eslint": "6.0.0",
->>>>>>> Stashed changes
         "eslint-plugin-prettier": "4.0.0",
         "eslint-plugin-vue": "8.0.3",
         "prettier": "2.4.1",
