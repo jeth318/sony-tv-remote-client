@@ -1,22 +1,11 @@
-#!/usr/bin/env bash
-cd /home/pi/apps/sony-tv-remote/client
-echo "Stashing lock files"
-git stash
+#!/bin/sh
+branch=$(git branch --show-current)
 
-echo "Dropping stash"
-git stash drop
-
-echo "Pulling from Master"
-git pull origin master
-echo "Pulled successfully from master"
-
-echo "Installing dependencies using npm continous integration..."
-npm ci
-echo "Dependencies were installed"
-
-echo "Rebuilding application"
-npm run build
-
-echo "Rebuild OK"
-echo "Deployment complete, and it was a success!"
-exit 0
+if [[ $branch == "main" ]]; then
+    echo "On main branch. Will build and ship to server"
+    npm run build
+    echo "Shipping dist to server"
+    rsync -arvz -e 'ssh -p 2244' --progress $(pwd)/dist/* jeth@10.0.128.110:/home/jeth/apps/sony-tv-remote/client
+else
+    echo "Not on main branch. Skipping build and deploy."
+fi
