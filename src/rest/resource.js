@@ -3,7 +3,7 @@ import { baseUrl } from './config'
 
 export const isTurnedOn = async () => {
     try {
-        return await axios(`${baseUrl}/tv/power`)
+        return await axios(`${baseUrl}/iot/tv/power`)
     } catch (error) {
         console.error('Oops, cannot fetch system information:', error)
         return error
@@ -22,7 +22,7 @@ export const pingTv = async () => {
 export const sendIRCCCommand = async (code) => {
     const config = {
         method: 'post',
-        url: `${baseUrl}/tv/ircc`,
+        url: `${baseUrl}/iot/tv/ircc`,
         data: JSON.stringify({ code }),
         headers: { 'content-type': 'application/json' },
     }

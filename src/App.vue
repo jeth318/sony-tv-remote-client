@@ -74,7 +74,6 @@ export default {
                 'Kontrollera att du är ansluten till samma WiFi som din Sony-TV.'
             this.showModal = true
         } else {
-            console.log(response.data)
             this.internalIsTurnedOn = response.data.active
         }
     },
